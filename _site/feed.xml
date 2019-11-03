@@ -1,29 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-11-02T23:50:35-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Franco Calle</title><subtitle>Personal Portfolio</subtitle><author><name>Franco Calle</name></author><entry><title type="html">Discrete Choice Models</title><link href="http://localhost:4000/dcm/" rel="alternate" type="text/html" title="Discrete Choice Models" /><published>2018-01-28T00:00:00-05:00</published><updated>2018-01-28T00:00:00-05:00</updated><id>http://localhost:4000/dcm</id><content type="html" xml:base="http://localhost:4000/dcm/">&lt;h1 id=&quot;h1-heading&quot;&gt;H1 Heading&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-11-03T15:57:55-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Franco Calle</title><subtitle></subtitle><author><name>Franco Calle</name></author><entry><title type="html">Discrete Choice Models - Matlab</title><link href="http://localhost:4000/dcm/" rel="alternate" type="text/html" title="Discrete Choice Models - Matlab" /><published>2018-01-28T00:00:00-05:00</published><updated>2018-01-28T00:00:00-05:00</updated><id>http://localhost:4000/dcm</id><content type="html" xml:base="http://localhost:4000/dcm/">&lt;h2 id=&quot;package-for-estimation-and-simulation-of-discrete-choice-models-matlab&quot;&gt;Package for estimation and simulation of discrete choice models [Matlab]&lt;/h2&gt;
 
-&lt;h2 id=&quot;h2-heading&quot;&gt;H2 Heading&lt;/h2&gt;
+&lt;p&gt;Discrete choice models are becoming trendier as the availability of data increases in multiple areas like health, education, credit markets, and many others. The key idea of them is to model the decision making of an individual to choose a particular option among a discrete set of them, based on individual and option level characteristics. An application of this method could be to estimate the probability of a family choosing where to enroll their kids from an array of schools available near their neighborhood, or estimate the probability of choosing a particular mean of transportation for an individual to get to work.&lt;/p&gt;
 
-&lt;h3 id=&quot;h3-heading&quot;&gt;H3 Heading&lt;/h3&gt;
+&lt;!-- *italics* --&gt;
 
-&lt;p&gt;Here’s some basic text.&lt;/p&gt;
+&lt;p&gt;I developed a package in Matlab, (Python and Julia versions forthcoming) that estimates different static versions of discrete choice models that maximize the likelihood or the joint likelihood of different decision problems. In this blog post I pretend to explain the code and how it works but not the mathematical details of it, for this I recommend reading  Discrete choice methods with simulation by Kenneth Train 2009.&lt;/p&gt;
 
-&lt;p&gt;And here’s some &lt;em&gt;italics&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ok, here we go!&lt;/p&gt;
 
-&lt;p&gt;Here’s some &lt;strong&gt;bold&lt;/strong&gt; text.&lt;/p&gt;
+&lt;p&gt;The whole package for my code can be found &lt;a href=&quot;https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;What about a &lt;a href=&quot;https://github.com/dataoptimal&quot;&gt;link&lt;/a&gt;?&lt;/p&gt;
-
-&lt;p&gt;Here’s a bulleted list:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;First item&lt;/li&gt;
-  &lt;li&gt;Second item&lt;/li&gt;
-  &lt;li&gt;Third item&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Here’s a numbered list:&lt;/p&gt;
+&lt;p&gt;The whole repo contains the following folders:&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;First&lt;/li&gt;
-  &lt;li&gt;Second&lt;/li&gt;
-  &lt;li&gt;Third&lt;/li&gt;
+  &lt;li&gt;dcmlab&lt;/li&gt;
+  &lt;li&gt;mainLogit&lt;/li&gt;
+  &lt;li&gt;mainExplodedLogit&lt;/li&gt;
+  &lt;li&gt;gaugher&lt;/li&gt;
+  &lt;li&gt;GHQuadInit&lt;/li&gt;
+  &lt;li&gt;DA: Implementation of the Gale-Shapley deferred acceptance algorithm in MATLAB by &lt;a href=&quot;https://github.com/mohitkarnani/matching-code&quot;&gt;Mohit Karnani&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;exPostFeasible&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Python code block:&lt;/p&gt;
@@ -52,7 +47,11 @@
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;z=x+y&lt;/script&gt;
 
-&lt;p&gt;You can also put it inline &lt;script type=&quot;math/tex&quot;&gt;z=x+y&lt;/script&gt;&lt;/p&gt;</content><author><name>Franco Calle</name></author><category term="data wrangling" /><category term="data science" /><category term="messy data" /><summary type="html">Behavioral Modelling - Python &amp; Matlab</summary></entry><entry><title type="html">Web Scrapping</title><link href="http://localhost:4000/webscrapping/" rel="alternate" type="text/html" title="Web Scrapping" /><published>2018-01-28T00:00:00-05:00</published><updated>2018-01-28T00:00:00-05:00</updated><id>http://localhost:4000/webscrapping</id><content type="html" xml:base="http://localhost:4000/webscrapping/">&lt;h1 id=&quot;h1-heading&quot;&gt;H1 Heading&lt;/h1&gt;
+&lt;p&gt;You can also put it inline &lt;script type=&quot;math/tex&quot;&gt;z=x+y&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Bibliography:&lt;/p&gt;
+
+&lt;p&gt;Train, K., &amp;amp; Weeks, M. (2005). Discrete choice models in preference space and willingness-to-pay space. In Applications of simulation methods in environmental and resource economics (pp. 1-16). Springer, Dordrecht.&lt;/p&gt;</content><author><name>Franco Calle</name></author><category term="data wrangling" /><category term="data science" /><category term="messy data" /><summary type="html">Behavioral Modelling - Python &amp; Matlab</summary></entry><entry><title type="html">Web Scrapping</title><link href="http://localhost:4000/webscrapping/" rel="alternate" type="text/html" title="Web Scrapping" /><published>2018-01-28T00:00:00-05:00</published><updated>2018-01-28T00:00:00-05:00</updated><id>http://localhost:4000/webscrapping</id><content type="html" xml:base="http://localhost:4000/webscrapping/">&lt;h1 id=&quot;h1-heading&quot;&gt;H1 Heading&lt;/h1&gt;
 
 &lt;h2 id=&quot;h2-heading&quot;&gt;H2 Heading&lt;/h2&gt;
 

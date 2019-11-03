@@ -2,10 +2,18 @@
 layout: archive
 ---
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+<h1 class="archive__subtitle">{{ site.data.ui-text[site.locale].home_page | default: "Welcome to my site!" }}</h1>
 
-{% for post in paginator.posts %}
+<p class="lead mb-5"></p>
+<font size="4">I'm Franco Calle, a Senior Research Specialist @<a href="https://www.princeton.edu/">Princeton Univesity</a> working with <a href="https://christopherneilson.github.io/">Christopher Neilson</a> in several projects in the field of Labor and Education in the context of the developing world. Also I'm an affiliate researcher @<a href="https://www.consiliumbots.com/">ConsiliumBots</a> where I work with an amazing team of economists to fuse tools in Data Science and Economic theory to build creative solutions to development problems. </font>
+<p class="lead mb-1"></p>
+<font size="4">My main research interest lay in the intersection between empirical Industrial Organization, Development and Artificial Inteligence.</font>
+<p class="lead mb-5"></p>
+
+<font size="4">You can reach me at: ffalcon at princeton.edu, or find me on <a href="https://twitter.com/FrancoCalle/">Twitter</a>.</font>
+<!-- <font size="4">For more information about me: <a href="https://www.dropbox.com/s/cykvv8sxauj2oyw/Resume%20-%20FC.pdf?dl=0">Download my CV</a>. -->
+<!-- {% for post in paginator.posts %}
   {% include archive-single.html %}
-{% endfor %}
+{% endfor %} -->
 
 {% include paginator.html %}

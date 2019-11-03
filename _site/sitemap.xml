@@ -19,9 +19,16 @@
 <loc>http://localhost:4000/code/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/curriculum/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/research/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/images/Resume-FC.pdf</loc>
+<lastmod>2019-11-03T10:30:53-05:00</lastmod>
 </url>
 </urlset>
