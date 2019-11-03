@@ -1,10 +1,9 @@
 ---
-title: "Data Wrangling Project"
+title: "Discrete Choice Models"
 date: 2018-01-28
-tags: [data wrangling, data science, messy data]
+tags: [Discrete Choice Model, Behavioral Modelling]
 header:
-  image: "/images/perceptron/percept.jpg"
-excerpt: "Data Wrangling, Data Science, Messy Data"
+excerpt: "Behavioral Modelling"
 mathjax: "true"
 ---
 
