@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-11-03T20:15:40-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Franco Calle</title><subtitle></subtitle><author><name>Franco Calle</name></author><entry><title type="html">Discrete Choice Models - Matlab</title><link href="http://localhost:4000/dcm/" rel="alternate" type="text/html" title="Discrete Choice Models - Matlab" /><published>2018-01-28T00:00:00-05:00</published><updated>2018-01-28T00:00:00-05:00</updated><id>http://localhost:4000/dcm</id><content type="html" xml:base="http://localhost:4000/dcm/">&lt;h2 id=&quot;package-for-estimation-and-simulation-of-discrete-choice-models-matlab&quot;&gt;Package for estimation and simulation of discrete choice models [Matlab]&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-11-03T21:16:50-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Franco Calle</title><subtitle></subtitle><author><name>Franco Calle</name></author><entry><title type="html">Discrete Choice Models - Matlab</title><link href="http://localhost:4000/dcm/" rel="alternate" type="text/html" title="Discrete Choice Models - Matlab" /><published>2018-01-28T00:00:00-05:00</published><updated>2018-01-28T00:00:00-05:00</updated><id>http://localhost:4000/dcm</id><content type="html" xml:base="http://localhost:4000/dcm/">&lt;h2 id=&quot;package-for-estimation-and-simulation-of-discrete-choice-models-matlab&quot;&gt;Package for estimation and simulation of discrete choice models [Matlab]&lt;/h2&gt;
 
 &lt;p&gt;Discrete choice models are becoming trendier as the availability of data increases in multiple areas like health, education, credit markets, and many others. The key idea of them is to model the decision making of an individual to choose a particular option among a discrete set of them, based on individual and option level characteristics. An application of this method could be to estimate the probability of a family choosing where to enroll their kids from an array of schools available near their neighborhood, or estimate the probability of choosing a particular mean of transportation for an individual to get to work.&lt;/p&gt;
 
@@ -6,33 +6,23 @@
 
 &lt;p&gt;I developed a package in Matlab, (Python and Julia versions forthcoming) that estimates different static versions of discrete choice models that maximize the likelihood or the joint likelihood of different decision problems. In this blog post I pretend to explain the code and how it works but not the mathematical details of it, for this I recommend reading  Discrete choice methods with simulation by Kenneth Train 2009.&lt;/p&gt;
 
+&lt;p&gt;The whole package for my code can be found &lt;a href=&quot;https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab&quot;&gt;here&lt;/a&gt;
+The most simple way of testing it is to clone the repository, open matlab and run mainLogit. I know that Matlab is an object oriented language and defining all the functions within a single class can be very computationally inefficient, however, I decided to have all the code in one class anyways to prevent the repo to be overload with many .m files. If you’re looking for more efficiency, I recommend separating the functions in different .m files, I did that for other project and it worked 100% guaranteed.&lt;/p&gt;
+
 &lt;p&gt;Ok, here we go!&lt;/p&gt;
 
-&lt;p&gt;The whole package for my code can be found &lt;a href=&quot;https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab&quot;&gt;here&lt;/a&gt;
-The most simple way of testing the code is to clone the repository, open matlab and run mainLogit. This code&lt;/p&gt;
+&lt;!-- Python code block:
+```python
+    import numpy as np
 
-&lt;!-- The whole repo contains the following .m files:
-1. dcmlab: dcmlab contains the class  
-2. mainLogit: main file which runs all the routine for estimation of logit model
-3. mainExplodedLogit: main file which runs all the routine for estimation of exploded logit model
-4. gaugher: routine to estimate the factors for quadrature
-5. GHQuadInit: Get nodes and weights for quadrature
-6. DA: Implementation of the Gale-Shapley deferred acceptance algorithm in MATLAB by [Mohit Karnani](https://github.com/mohitkarnani/matching-code).
-7. exPostFeasible: get ex post feasible set of options as a result of allocation from DA.  --&gt;
+    def test_function(x, y):
+      z = np.sum(x,y)
+      return z
+``` --&gt;
 
-&lt;p&gt;Python code block:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;some code
+some more code
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;R code block:&lt;/p&gt;
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tidyverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;some_file.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Here’s some inline code &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x+y&lt;/code&gt;.&lt;/p&gt;
 
