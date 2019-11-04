@@ -311,18 +311,17 @@
 
 <p>Ok, here we go!</p>
 
-<p>The whole package for my code can be found <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab">here</a></p>
+<p>The whole package for my code can be found <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab">here</a>
+The most simple way of testing the code is to clone the repository, open matlab and run mainLogit. This code</p>
 
-<p>The whole repo contains the following folders:</p>
-<ol>
-  <li>dcmlab</li>
-  <li>mainLogit</li>
-  <li>mainExplodedLogit</li>
-  <li>gaugher</li>
-  <li>GHQuadInit</li>
-  <li>DA: Implementation of the Gale-Shapley deferred acceptance algorithm in MATLAB by <a href="https://github.com/mohitkarnani/matching-code">Mohit Karnani</a>.</li>
-  <li>exPostFeasible</li>
-</ol>
+<!-- The whole repo contains the following .m files:
+1. dcmlab: dcmlab contains the class  
+2. mainLogit: main file which runs all the routine for estimation of logit model
+3. mainExplodedLogit: main file which runs all the routine for estimation of exploded logit model
+4. gaugher: routine to estimate the factors for quadrature
+5. GHQuadInit: Get nodes and weights for quadrature
+6. DA: Implementation of the Gale-Shapley deferred acceptance algorithm in MATLAB by [Mohit Karnani](https://github.com/mohitkarnani/matching-code).
+7. exPostFeasible: get ex post feasible set of options as a result of allocation from DA.  -->
 
 <p>Python code block:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
@@ -340,11 +339,14 @@
 
 <p>Here’s some inline code <code class="language-plaintext highlighter-rouge">x+y</code>.</p>
 
-<p>Here’s an image:
-<img src="http://localhost:4000/images/perceptron/linsep.jpg" alt="linearly separable data" /></p>
+<!-- Here's an image:
+<img src="http://localhost:4000/images/dcm/parameters_convergence_no_rc.jpg" alt="linearly separable data"> -->
 
-<p>Here’s another image using Kramdown:
-<img src="http://localhost:4000/images/perceptron/linsep.jpg" alt="alt" /></p>
+<p>How parameters converge after 120 iterations using stochastic gradient descent:
+<img src="http://localhost:4000/images/dcm/parameters_convergence_no_rc.jpg" alt="alt" /></p>
+
+<p>Here are some simulations of option removal. Evidently, less options imply less utility.
+<img src="http://localhost:4000/images/dcm/policy_change.jpg" alt="alt" /></p>
 
 <p>Here’s some math:</p>
 
@@ -375,15 +377,15 @@
     
       
       
-      <a href="http://localhost:4000/tags/#data-science" class="page__taxonomy-item" rel="tag">data science</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#behavioral-model" class="page__taxonomy-item" rel="tag">behavioral model</a><span class="sep">, </span>
     
       
       
-      <a href="http://localhost:4000/tags/#data-wrangling" class="page__taxonomy-item" rel="tag">data wrangling</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#discrete-choice-model" class="page__taxonomy-item" rel="tag">discrete choice model</a><span class="sep">, </span>
     
       
       
-      <a href="http://localhost:4000/tags/#messy-data" class="page__taxonomy-item" rel="tag">messy data</a>
+      <a href="http://localhost:4000/tags/#logit" class="page__taxonomy-item" rel="tag">logit</a>
     
     </span>
   </p>
