@@ -19,4 +19,4 @@ Download Here. [Forthcoming]
 
 ## Information Provision Using a Chatbot
 
-<sub>We built a chatbot that dinamically interacts with students to provide them with information about different higher education options in Colombia, Dominican Republic and Chile.</sub>
+<sub>We built a chatbot that dynamically interacts with students to provide them with information about different higher education options in Colombia, Dominican Republic and Chile.</sub>
