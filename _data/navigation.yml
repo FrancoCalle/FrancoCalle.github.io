@@ -2,7 +2,7 @@
 main:
   # - title: "About"
   #   url: /about/
-  - title: "Curriculum"
+  - title: "CV"
     url: /curriculum/
   - title: "Code"
     url: /code/
