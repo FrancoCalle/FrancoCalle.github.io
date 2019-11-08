@@ -29,7 +29,7 @@
 
 
 
-  <meta property="article:published_time" content="2018-01-28T00:00:00-05:00">
+  <meta property="article:published_time" content="2019-10-15T00:00:00-04:00">
 
 
 
@@ -279,7 +279,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Discrete Choice Models - Matlab">
     <meta itemprop="description" content="Behavioral Modelling - Python &amp; Matlab">
-    <meta itemprop="datePublished" content="January 28, 2018">
+    <meta itemprop="datePublished" content="October 15, 2019">
     
 
     <div class="page__inner-wrap">
@@ -307,11 +307,11 @@
 
 <!-- *italics* -->
 
-<p>To this end, I developed <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab">dcmLab</a>, a package in Matlab, (Python and Julia versions forthcoming) that estimates different static versions of discrete choice models that maximize the likelihood or the joint likelihood of different decision problems. You can also add non observables heterogeneity by using the random coefficients routine in the package.</p>
+<p>To this end, I developed <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab" target="blank">dcmLab</a>, a package in Matlab, (Python and Julia versions forthcoming) that estimates different static versions of discrete choice models that maximize the likelihood or the joint likelihood of different decision problems. You can also add non observables heterogeneity by using the random coefficients routine in the package.</p>
 
 <p>In this post I pretend to briefly explain how the code works in the case of a very simple utility model without unobservable components. For a description of the mathematical details of it I recommend reading Discrete choice methods with simulation by Kenneth Train 2009.</p>
 
-<p>The whole package for my code can be found <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab">here</a>
+<p>The whole package for my code can be found <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab" target="blank">here</a>
 The most simple way of testing it is to clone the repository, open matlab and run mainLogit or mainExplodedLogit depending on which model you want to test.</p>
 
 <p>Disclaimer: I know Matlab’s OOP is very slow and defining all the functions within a single class can be computationally inefficient, however, I decided to have all the code in one class anyways to prevent loading the repo with many .m files. If you’re looking for efficiency, I recommend separating the functions in different .m files, I did that for many other projects and it worked 100% guaranteed.</p>
@@ -335,7 +335,7 @@ end
 
 <p>&nbsp;</p>
 
-<p>Second, in order to generate data on choices we have to arrange the coefficients that will enter the routine and define the model type we want to be testing. Our logistic model is  <code class="language-plaintext highlighter-rouge">Model 1</code> and will use random parameters for each X variable. After defining the parameters and the XX variables we can generate fake choices conditional on them using <code class="language-plaintext highlighter-rouge">dcmLab.generateFakeChoices(parameters, false)</code>. This routine uses as inputs a parameter array and a bool that is true if we want to generate the feasible choice set based on a Deferred Acceptance algorithm (the matlab implementation was adapted from <a href="https://github.com/mohitkarnani">Mohit Karnani</a>), or false if we want to define a random feasible choice set. For this tutorial we will opt for the second. The result of the routine is a new element in Data named <code class="language-plaintext highlighter-rouge">ChoiceIndex</code>.</p>
+<p>Second, in order to generate data on choices we have to arrange the coefficients that will enter the routine and define the model type we want to be testing. Our logistic model is  <code class="language-plaintext highlighter-rouge">Model 1</code> and will use random parameters for each X variable. After defining the parameters and the XX variables we can generate fake choices conditional on them using <code class="language-plaintext highlighter-rouge">dcmLab.generateFakeChoices(parameters, false)</code>. This routine uses as inputs a parameter array and a bool that is true if we want to generate the feasible choice set based on a Deferred Acceptance algorithm (the matlab implementation was adapted from <a href="https://github.com/mohitkarnani" target="blank">Mohit Karnani</a>), or false if we want to define a random feasible choice set. For this tutorial we will opt for the second. The result of the routine is a new element in Data named <code class="language-plaintext highlighter-rouge">ChoiceIndex</code>.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pack.Model = 'Model 1'; %This define the type of model to estimate
 
@@ -365,7 +365,7 @@ dcmLab.checkGradient(parameters,passedUtilityFunction)
 <p>This method should perfectly recover the parameters that we used to define <code class="language-plaintext highlighter-rouge">ChoiceIndex</code> after converge is reached. Here is a scatterplot that shows how well our estimated coefficients fit to the true parameters.
 <img src="http://localhost:4000/images/dcm/parameter_fitting_no_rc.jpg" alt="alt" /></p>
 
-<p>In addition to the Matlab optimization method, I also built an stochastic gradient descent procedure with Adam optimizer (<a href="https://arxiv.org/abs/1412.6980">Kingma &amp; Ba 2015</a>) that can be faster for optimizing objective functions when the dimensionality of the parameter space and/or the number of observations in the model increases. This procedure uses mini batches of data -instead of the whole sample- to estimate the magnitude and direction where parameters should be updated iteration by iteration based on adaptive estimates of lower-order moments. To visualize performance run the following lines of code.</p>
+<p>In addition to the Matlab optimization method, I also built an stochastic gradient descent procedure with Adam optimizer (<a href="https://arxiv.org/abs/1412.6980" target="blank">Kingma &amp; Ba 2015</a>) that can be faster for optimizing objective functions when the dimensionality of the parameter space and/or the number of observations in the model increases. This procedure uses mini batches of data -instead of the whole sample- to estimate the magnitude and direction where parameters should be updated iteration by iteration based on adaptive estimates of lower-order moments. To visualize performance run the following lines of code.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%4.1. Define batch size:
 batchSize = 2^10;
@@ -403,7 +403,7 @@ box on
 <p>Evidently, reducing options can reduce overall utility.
 <img src="http://localhost:4000/images/dcm/policy_change.jpg" alt="alt" /></p>
 
-<p>I hope this post was useful to understand dcmLab. Please, if you have any comments or want to make changes to improve dcmLab, don’t hesitate on submitting pull requests to the <a href="https://github.com/FrancoCalle/DiscreteChoiceModels">repo</a>. If your changes are approved I’ll publish my gratitude to your contribution in this post and twit about it.</p>
+<p>I hope this post was useful to understand dcmLab. Please, if you have any comments or want to make changes to improve dcmLab, don’t hesitate on submitting pull requests to the <a href="https://github.com/FrancoCalle/DiscreteChoiceModels" target="blank">repo</a>. If your changes are approved I’ll publish my gratitude to your contribution in this post and twit about it.</p>
 
 <p>&nbsp;</p>
 
@@ -456,7 +456,7 @@ box on
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-01-28T00:00:00-05:00">January 28, 2018</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-10-15T00:00:00-04:00">October 15, 2019</time></p>
         
       </footer>
 
