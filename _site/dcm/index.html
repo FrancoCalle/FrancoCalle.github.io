@@ -179,24 +179,30 @@
         
         <h2 id="discrete-choice-models-in-matlab">Discrete choice models in Matlab</h2>
 
-<p>Clone my repo <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/blob/master/matlab" target="blank">here</a>.</p>
+<p>Fork my repo <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/blob/master/matlab" target="blank">here</a>.</p>
 
-<p>Discrete choice models are becoming trendier as more data becomes available in multiple areas like health, education, credit markets, and many others. The key idea of them is to model the decision making of an individual to choose a particular option among a discrete set of them, based on individual and option level characteristics. Many applications of this method come to my mind; for instance, estimating the probability of a family choosing where to enroll their kids from an array of schools available near their neighborhood, or estimating the probability of choosing a particular mean of transportation for an individual to get to work.</p>
+<p>Models available:</p>
+<ul>
+  <li>Logit</li>
+  <li>Exploded Logit</li>
+  <li>Logit with Random Coefficients</li>
+  <li>Exploded Logit with Random Coefficients</li>
+</ul>
+
+<p>Discrete choice models are becoming trendier as more data becomes available in multiple areas like health, education, credit markets, and many others. The key idea of them is to model the process of decision making of an individual for choosing a particular option among a discrete set of option, based on individual and option level characteristics. Many applications of this method come to my mind; for instance, estimating the probability of a family choosing where to enroll their children from an array of schools available near their neighborhood, or estimating the probability of choosing a particular mean of transportation for an individual to get to work.</p>
 
 <!-- *italics* -->
 
-<p>To this end, I developed <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/blob/master/matlab/dcmLab.m" target="blank">dcmLab</a>, a package in Matlab, (Python and Julia versions forthcoming) that estimates different static versions of discrete choice models that maximize the likelihood or the joint likelihood of different decision problems. You can also add non observables heterogeneity by using the random coefficients routine in the package.</p>
+<p>With the objective of estimating these models, I developed <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/blob/master/matlab/dcmLab.m" target="blank">dcmLab</a>, a package programed in Matlab, (Python and Julia versions forthcoming) that computes different versions of static discrete choice models that maximize the likelihood, or the joint likelihood, of a decision problem. You can also add non observable heterogeneity to your model by using the random coefficients routine in the package.</p>
 
-<p>In this post I pretend to briefly explain how the code works in the case of a very simple utility model without unobservable components. For a description of the mathematical details of it I recommend reading Discrete choice methods with simulation by Kenneth Train 2009.</p>
+<p>In this post I pretend to briefly explain how the code works in the case of a very simple logistic model without unobservable components. For a description of the mathematical details I recommend reading “Discrete choice methods with simulation” by Kenneth Train 2009.</p>
 
-<p>The whole package for my code can be found <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab" target="blank">here</a>
-The most simple way of testing it is to clone the repository, open matlab and run mainLogit or mainExplodedLogit depending on which model you want to test.</p>
+<p>The whole package can be found <a href="https://github.com/FrancoCalle/DiscreteChoiceModels/tree/master/matlab" target="blank">here</a>
+The simplest way of testing it is to clone the repository, open matlab and run mainLogit or mainExplodedLogit depending on which model you want to test.</p>
 
 <p>Disclaimer: I know Matlab’s OOP is very slow and defining all the functions within a single class can be computationally inefficient, however, I decided to have all the code in one class anyways to prevent loading the repo with many .m files. If you’re looking for efficiency, I recommend separating the functions in different .m files, I did that for many other projects and it worked 100% guaranteed.</p>
 
 <p>Ok, here we go!</p>
-
-<p>Remember that there are multiple type of discrete choice models, in this case we are going to explain how to run a simple logistic model using mainLogit.m.</p>
 
 <p>First, the script defines variables entering into the model, in this case we define the <code class="language-plaintext highlighter-rouge">nXX</code> different explanatory variables and store them in cell array <code class="language-plaintext highlighter-rouge">XX</code> which contains arrays of <code class="language-plaintext highlighter-rouge">nObs</code> observations and <code class="language-plaintext highlighter-rouge">nOptions</code> options. Our explanatory variables here will be random arrays that comply with the mentioned characteristics but could easily be replaced by characteristics from the real world. All the variables that will be used in the model will be stored in the <code class="language-plaintext highlighter-rouge">Data</code> structure.</p>
 
@@ -213,7 +219,7 @@ end
 
 <p>&nbsp;</p>
 
-<p>Second, in order to generate data on choices we have to arrange the coefficients that will enter the routine and define the model type we want to be testing. Our logistic model is  <code class="language-plaintext highlighter-rouge">Model 1</code> and will use random parameters for each X variable. After defining the parameters and the XX variables we can generate fake choices conditional on them using <code class="language-plaintext highlighter-rouge">dcmLab.generateFakeChoices(parameters, false)</code>. This routine uses as inputs a parameter array and a bool that is true if we want to generate the feasible choice set based on a Deferred Acceptance algorithm (the matlab implementation was adapted from <a href="https://github.com/mohitkarnani" target="blank">Mohit Karnani</a>), or false if we want to define a random feasible choice set. For this tutorial we will opt for the second. The result of the routine is a new element in Data named <code class="language-plaintext highlighter-rouge">ChoiceIndex</code>.</p>
+<p>Second, in order to generate data on choices we have to arrange the coefficients that will enter the routine and define the model type we want to be testing. Our logistic model is  <code class="language-plaintext highlighter-rouge">Model 1</code> and will use random parameters for each X variable. After defining the parameters and the XX variables we can generate fake choices conditional on them using <code class="language-plaintext highlighter-rouge">dcmLab.generateFakeChoices(parameters, false)</code>. This routine uses as inputs a parameter array and a bool that is true if we want to generate the feasible choice set based on a Deferred Acceptance algorithm (the matlab implementation was adapted by <a href="https://github.com/mohitkarnani" target="blank">Mohit Karnani</a>), or false if we want to define a random feasible choice set. For this tutorial we will opt for the second. The result of the routine is a new element in Data named <code class="language-plaintext highlighter-rouge">ChoiceIndex</code>.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pack.Model = 'Model 1'; %This define the type of model to estimate
 
@@ -224,7 +230,7 @@ dcmLab.generateFakeChoices(parameters, false); %Estimate fake data
 
 <p>&nbsp;</p>
 
-<p>After generating choices, we define the utility function we are going to use <code class="language-plaintext highlighter-rouge">dcmLab.utilityFunction(parameters,  true)</code> and check whether the gradients for the objective function of this model are correctly defined. What <code class="language-plaintext highlighter-rouge">dcmLab.checkGradient(parameters,passedUtilityFunction)</code> does is to compute difference between the analytic gradient and the numerical gradient that should be zero if the gradient is correctly defined.</p>
+<p>After generating choices, we define the utility function we will use <code class="language-plaintext highlighter-rouge">dcmLab.utilityFunction(parameters,  true)</code> and check whether the gradients for the objective function of the model are correctly defined. What <code class="language-plaintext highlighter-rouge">dcmLab.checkGradient(parameters,passedUtilityFunction)</code> does is compute the difference between the analytic gradient and the numerical gradient that should be zero if the gradient is correctly defined.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passedUtilityFunction = @(parameters) dcmLab.utilityFunction(parameters,  true);
 dcmLab.checkGradient(parameters,passedUtilityFunction)
@@ -240,10 +246,10 @@ dcmLab.checkGradient(parameters,passedUtilityFunction)
 
 <p>&nbsp;</p>
 
-<p>This method should perfectly recover the parameters that we used to define <code class="language-plaintext highlighter-rouge">ChoiceIndex</code> after converge is reached. Here is a scatterplot that shows how well our estimated coefficients fit to the true parameters.
+<p>This method should perfectly recover the parameters we used to define <code class="language-plaintext highlighter-rouge">ChoiceIndex</code> after convergence is reached. Here is a scatterplot that shows how well our estimated coefficients fit to the true parameters.
 <img src="http://localhost:4000/images/dcm/parameter_fitting_no_rc.jpg" alt="alt" /></p>
 
-<p>In addition to the Matlab optimization method, I also built an stochastic gradient descent procedure with Adam optimizer (<a href="https://arxiv.org/abs/1412.6980" target="blank">Kingma &amp; Ba 2015</a>) that can be faster for optimizing objective functions when the dimensionality of the parameter space and/or the number of observations in the model increases. This procedure uses mini batches of data -instead of the whole sample- to estimate the magnitude and direction where parameters should be updated iteration by iteration based on adaptive estimates of lower-order moments. To visualize performance run the following lines of code.</p>
+<p>In addition to the Matlab optimization method, I also built an stochastic gradient descent procedure with Adam optimizer (<a href="https://arxiv.org/abs/1412.6980" target="blank">Kingma &amp; Ba 2015</a>) that can be faster for optimizing objective functions when the dimensionality of the parameter space and/or the number of observations in the model increases. This procedure uses mini batches of data -instead of the whole sample- to estimate the magnitude and direction where parameters should be updated iteration by iteration based on adaptive estimates of lower-order moments. To visualize performance run the next lines of code.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%4.1. Define batch size:
 batchSize = 2^10;
@@ -281,13 +287,15 @@ box on
 <p>Evidently, reducing options can reduce overall utility.
 <img src="http://localhost:4000/images/dcm/policy_change.jpg" alt="alt" /></p>
 
-<p>I hope this post was useful to understand dcmLab. Please, if you have any comments or want to make changes to improve dcmLab, don’t hesitate on submitting pull requests to the <a href="https://github.com/FrancoCalle/DiscreteChoiceModels" target="blank">repo</a>. If your changes are approved I’ll publish my gratitude to your contribution in this post and twit about it.</p>
+<p>I hope this post was useful to understand dcmLab. Please, if you have any comments or want to make changes to improve dcmLab, don’t hesitate on submitting pull requests to the <a href="https://github.com/FrancoCalle/DiscreteChoiceModels" target="blank">repo</a>. If your changes are approved I’ll publish my gratitude to your contribution to this post and tweet about it.</p>
 
 <p>&nbsp;</p>
 
 <p>Bibliography:</p>
 
 <p>Train, K., &amp; Weeks, M. (2005). <em>Discrete choice models in preference space and willingness-to-pay space</em>. In Applications of simulation methods in environmental and resource economics (pp. 1-16). Springer, Dordrecht.</p>
+
+<p>Kingma, D. P., &amp; Ba, J. (2014). Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980.</p>
 
 <!-- Python code block:
 ```python
