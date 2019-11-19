@@ -24,9 +24,9 @@ Abstract : In this paper, we study policies that use pre-college academic achiev
 
 ![alt]({{ site.url }}{{ site.baseurl }}/documents/CGN2019_Draft_online_appendix.pdf) -->
 
-[Download Paper Here](http://localhost:4000/documents/CGN2019_Draft_text.pdf){:target="blank"}
+[Download Paper Here](/documents/CGN2019_Draft_text.pdf){:target="blank"}
 
-[Download Appendix Here](http://localhost:4000/documents/CGN2019_Draft_online_appendix.pdf){:target="blank"}
+[Download Appendix Here](/documents/CGN2019_Draft_online_appendix.pdf){:target="blank"}
 
 <!-- ## Information Provision Using a Chatbot
 
