@@ -11,7 +11,7 @@ author_profile: false
 Description: We built a chatbot that dinamically interacts with students to provide them with information about different higher education options in Colombia, Dominican Republic and Chile. -->
 
 
-## Screening and Recruiting Talent At Teachers Colleges
+## Screening and Recruiting Talent At Teachers Colleges - [Princeton IRS Working Papers](http://arks.princeton.edu/ark:/88435/dsp013197xp935){:target="blank"}
 
 <em>With Christopher Neilson and Sebastian Gallegos</em>
 
@@ -24,9 +24,9 @@ Abstract : This paper studies screening and recruiting policies that use pre-col
 
 ![alt]({{ site.url }}{{ site.baseurl }}/documents/CGN2019_Draft_online_appendix.pdf) -->
 
-[Download Paper Here](http://arks.princeton.edu/ark:/88435/dsp013197xp935){:target="blank"}
+[Latest Version](https://christopherneilson.github.io/work/documents/TeacherQuality/CGN2019_Draft.pdf){:target="blank"}
 
-[Download Appendix Here](/documents/CGN2019_Draft_online_appendix.pdf){:target="blank"}
+[Online Appendix](/documents/CGN2019_Draft_online_appendix.pdf){:target="blank"}
 
 <!-- ## Information Provision Using a Chatbot
 
