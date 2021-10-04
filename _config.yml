@@ -88,7 +88,7 @@ author:
   name             : "Franco Calle"
   avatar           : "/images/franco.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Personal Portfolio"
-  location         : "Princeton, NJ"
+  location         : "Chicago, IL"
   email            :
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
